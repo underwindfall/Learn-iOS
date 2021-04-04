@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var alertIsVisble : Bool = false
+    
+    
     //property in contentview
     //var -> have ability to change the attributes
     var body: some View {
@@ -33,9 +36,24 @@ struct ContentView: View {
                     .bold()
             }
             
-            Button(action: {}) {
+            Button(action: {
+                print("click button")
+                self.alertIsVisble = true
+            }) {
                 Text("Hit me")
             }
+            //$ -> binding state to varaible <---> alertIsVisble binding into state
+            // so ->$alertIsVisble ==  isPresneted
+            .alert(isPresented: $alertIsVisble, content: {
+                print("=== \(alertIsVisble)")
+                return Alert(
+                    title: Text("Hello there"),
+                    message: Text("This is my first popup"),
+                    dismissButton: .default(
+                        Text("Awesome"),
+                        action: {print("after dismiss \(alertIsVisble)")}))
+                        
+            })
         }
     }
 }
