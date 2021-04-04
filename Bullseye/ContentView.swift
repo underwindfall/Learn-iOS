@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    //property in contentview
+    //var -> have ability to change the attributes
     var body: some View {
         VStack {
             Text("🎯🎯🎯 \n Put the BullsEye as close as you can to")
@@ -18,11 +20,19 @@ struct ContentView: View {
                 .font(.footnote)
             
             Text("89")
+                .kerning(-1.0)
+                .font(.largeTitle)
+                .fontWeight(.black)
+            
+            
             HStack {
                 Text("1")
+                    .bold()
                 Slider(value: .constant(50), in: 1.0...100.0)
                 Text("100")
+                    .bold()
             }
+            
             Button(action: {}) {
                 Text("Hit me")
             }
