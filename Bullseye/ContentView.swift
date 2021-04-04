@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var alertIsVisble : Bool = false
+    @State private var whoIsVisble : Bool = false
     
     
     //property in contentview
@@ -53,6 +54,17 @@ struct ContentView: View {
                         Text("Awesome"),
                         action: {print("after dismiss \(alertIsVisble)")}))
                         
+            })
+            
+            Button(action: {
+                self.whoIsVisble = true
+            }, label: {
+                Text("Knock Knock")
+            })
+            .alert(isPresented: $whoIsVisble, content: {
+                return Alert(title: Text("Knock knock joke"),
+                             message: Text("Who is there"),
+                             dismissButton: .default(Text("The lady is here")))
             })
         }
     }
