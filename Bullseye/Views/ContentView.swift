@@ -11,6 +11,8 @@ struct ContentView: View {
     @State private var alertIsVisble : Bool = false
     @State private var sliderValue: Double = 50.0
     
+    @State private var game: Game = Game()
+    
     
     //property in contentview
     //var -> have ability to change the attributes
@@ -23,7 +25,7 @@ struct ContentView: View {
                 .lineSpacing(4.0)
                 .font(.footnote)
             
-            Text("89")
+            Text(String(game.target))
                 .kerning(-1.0)
                 .font(.largeTitle)
                 .fontWeight(.black)
@@ -50,7 +52,7 @@ struct ContentView: View {
                 let roundedValue :Int = Int(self.sliderValue.rounded())
                 return Alert(
                     title: Text("Hello there"),
-                    message: Text("The slider value is \(roundedValue)"),
+                    message: Text("The slider value is \(roundedValue) \n" + "You scored \(self.game.points(sliderValue: roundedValue)) points this round"),
                     dismissButton: .default(
                         Text("Awesome"),
                         action: {print("after dismiss \(alertIsVisble)")}))
