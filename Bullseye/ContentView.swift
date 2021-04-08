@@ -47,9 +47,10 @@ struct ContentView: View {
             // so ->$alertIsVisble ==  isPresneted
             .alert(isPresented: $alertIsVisble, content: {
                 print("=== \(alertIsVisble)")
+                let roundedValue :Int = Int(self.sliderValue.rounded())
                 return Alert(
                     title: Text("Hello there"),
-                    message: Text("The slider value is \(self.sliderValue)"),
+                    message: Text("The slider value is \(roundedValue)"),
                     dismissButton: .default(
                         Text("Awesome"),
                         action: {print("after dismiss \(alertIsVisble)")}))
