@@ -49,7 +49,7 @@ struct ContentView: View {
                 print("=== \(alertIsVisble)")
                 return Alert(
                     title: Text("Hello there"),
-                    message: Text("This is my first popup"),
+                    message: Text("The slider value is \(self.sliderValue)"),
                     dismissButton: .default(
                         Text("Awesome"),
                         action: {print("after dismiss \(alertIsVisble)")}))
