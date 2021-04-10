@@ -34,14 +34,14 @@ struct ContentView: View {
             HStack {
                 Text("1")
                     .bold()
-                Slider(value: self.$sliderValue, in: 1.0...100.0)
+                Slider(value: $sliderValue, in: 1.0...100.0)
                 Text("100")
                     .bold()
             }
             
             Button(action: {
                 print("click button")
-                self.alertIsVisble = true
+                alertIsVisble = true
             }) {
                 Text("Hit me")
             }
@@ -49,10 +49,10 @@ struct ContentView: View {
             // so ->$alertIsVisble ==  isPresneted
             .alert(isPresented: $alertIsVisble, content: {
                 print("=== \(alertIsVisble)")
-                let roundedValue :Int = Int(self.sliderValue.rounded())
+                let roundedValue :Int = Int(sliderValue.rounded())
                 return Alert(
                     title: Text("Hello there"),
-                    message: Text("The slider value is \(roundedValue) \n" + "You scored \(self.game.points(sliderValue: roundedValue)) points this round"),
+                    message: Text("The slider value is \(roundedValue) \n" + "You scored \(game.points(sliderValue: roundedValue)) points this round"),
                     dismissButton: .default(
                         Text("Awesome"),
                         action: {print("after dismiss \(alertIsVisble)")}))
